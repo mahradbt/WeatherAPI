@@ -1,0 +1,74 @@
+version: '3.7'
+services:
+
+    ### PHP-FPM ##############################################
+    php-fpm:
+        build:
+            context: ./docker/php-fpm
+        tty: true
+        environment:
+            TZ: ${WORKSPACE_TIMEZONE}
+        volumes:
+            - ./src:/var/www
+            - ./docker/php-fpm/local.ini:/usr/local/etc/php/conf.d/local.ini
+        restart: always
+        networks:
+            - core-network
+
+    ### NGINX Server #########################################
+    nginx:
+        image: mahradbt/nginx:latest
+        tty: true
+        ports:
+            - "80:80"
+        volumes:
+            - ./src:/var/www
+            - ./docker/nginx/conf.d/:/etc/nginx/conf.d/
+            - ./DATA/nginx:/var/log/nginx/
+            - ./DATA/certbot/conf:/etc/letsencrypt
+            - ./DATA/certbot/www:/var/www/certbot
+        restart: always
+        networks:
+            - core-network
+
+    ### MariaDB ##############################################
+    mariadb:
+        image: mariadb:latest
+        volumes:
+            - ${DATA_PATH_HOST}/mariadb:/var/lib/mysql
+        environment:
+            - TZ=${WORKSPACE_TIMEZONE}
+            - MYSQL_DATABASE=${MARIADB_DATABASE}
+            - MYSQL_USER=${MARIADB_USER}
+            - MYSQL_PASSWORD=${MARIADB_PASSWORD}
+            - MYSQL_ROOT_PASSWORD=${MARIADB_ROOT_PASSWORD}
+        restart: always
+        networks:
+            - core-network
+
+    ### phpMyAdmin ###########################################
+    phpmyadmin:
+        image: phpmyadmin/phpmyadmin
+        environment:
+            - PMA_HOST=mariadb
+            - MYSQL_USER=${PMA_USER}
+            - MYSQL_PASSWORD=${PMA_PASSWORD}
+            - MYSQL_ROOT_PASSWORD=${PMA_ROOT_PASSWORD}
+        ports:
+            - 9080:80
+        restart: always
+        networks:
+            - core-network
+
+    ### Redis ################################################
+    redis:
+        image: redis:latest
+        volumes:
+            - ${DATA_PATH_HOST}/redis:/data
+        networks:
+            - core-network
+
+#Docker Networks
+networks:
+    core-network:
+        driver: bridge
