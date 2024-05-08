@@ -5,58 +5,64 @@ This project provides a secure, RESTful backend API for a mobile weather applica
 
 ## Features
 
-Authentication: Implements a secure authentication system for user access control.
-RESTful API: Provides a well-defined API for weather data retrieval and search functions.
-Symfony Framework: Leverages the robust features and libraries of Symfony for backend development.
-Dockerized Environment: Ensures consistent and portable setup using Docker containers.
+* Authentication: Implements a secure authentication system for user access control.
+* RESTful API: Provides a well-defined API for weather data retrieval and search functions.
+* Symfony Framework: Leverages the robust features and libraries of Symfony for backend development.
+* Dockerized Environment: Ensures consistent and portable setup using Docker containers.
 
 
 ## Technologies
 
-Backend: Symfony
-Dockerization: Docker Compose
-Database: MariaDB
-Database Administration: phpMyAdmin (optional)
-Cache: Redis (optional)
-API Authentication: (Specify your chosen authentication method)
+* Backend: Symfony
+* Dockerization: Docker Compose
+* Database: MariaDB
+* Database Administration: phpMyAdmin (optional)
+* Cache: Redis (optional)
+* Webserver: Nginx
+* PHP-fpm: v8.3
 
 
 ## Prerequisites
 
-Docker installed (https://docs.docker.com/engine/install/)
-Docker Compose installed (https://docs.docker.com/compose/install/)
-PHP and its dependencies installed (as required by your Symfony project)
+* Docker installed (https://docs.docker.com/engine/install/)
+* Docker Compose installed (https://docs.docker.com/compose/install/)
+* PHP and its dependencies installed (as required by your Symfony project)
 
 
-Installation
+## Installation
 
 Clone this repository:
 
-Bash
-git clone https://github.com/<your-username>/<your-repository-name>.git
-Use code with caution.
-content_copy
+```bash
+git clone https://github.com/mahradbt/weather-api.git
+```
+
 Navigate to the project directory:
 
-Bash
-cd <your-repository-name>
-Use code with caution.
-content_copy
+```bash
+cd weather-api
+```
+
 Copy the .env.example file to .env and configure environment variables:
 
-Bash
+
+```bash
 cp .env.example .env
-Use code with caution.
-content_copy
+```
+
+
 Update the .env file with your database credentials, API keys, and other necessary settings.
 Build and start the Docker containers:
 
-Bash
+
+```bash
 docker-compose up -d
-Use code with caution.
-content_copy
-The -d flag runs the containers in detached mode.
-Usage
+```
+
+The `-d` flag runs the containers in detached mode.
+
+
+## Usage
 
 Refer to the docs directory (if available) for detailed API documentation and usage instructions.
 Implement user authentication and API calls in your mobile application according to the API specifications.
