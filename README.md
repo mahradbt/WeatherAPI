@@ -43,7 +43,7 @@ Navigate to the project directory:
 cd weather-api
 ```
 
-Copy the .env.example file to .env and configure environment variables:
+Copy the `.env.example` file to `.env` and configure environment variables:
 
 
 ```bash
@@ -51,7 +51,7 @@ cp .env.example .env
 ```
 
 
-Update the .env file with your database credentials, API keys, and other necessary settings.
+Update the `.env` file with your database credentials, API keys, and other necessary settings.
 Build and start the Docker containers:
 
 
@@ -64,22 +64,20 @@ The `-d` flag runs the containers in detached mode.
 
 ## Usage
 
-Refer to the docs directory (if available) for detailed API documentation and usage instructions.
-Implement user authentication and API calls in your mobile application according to the API specifications.
-Configuration
+* Refer to the docs directory (if available) for detailed API documentation and usage instructions.
+* Implement user authentication and API calls in your mobile application according to the API specifications.
 
-Modify configuration files (e.g., config/packages/security.yaml) for authentication mechanisms and security policies.
-Customize database settings (e.g., config/databases.yaml) if needed.
-Contributing
+## Contributing
 
-Pull requests and suggestions are welcome! Please follow our contribution guidelines (if available) before submitting a pull request.
-License
+* Pull requests and suggestions are welcome! Please follow our contribution guidelines (if available) before submitting a pull request.
 
-Specify the license under which your project is distributed (e.g., MIT, Apache).
-Additional Notes
+## License
 
-Consider including sections for troubleshooting, deployment instructions, and future development plans.
-Use clear headings and formatting to enhance readability.
-Leverage Markdown features (bold, italics, lists) for structure.
-Provide links to relevant documentation for Symfony, Docker, and other technologies used.
-By following these guidelines and tailoring them to your specific project, you can create an informative and helpful README.md file that effectively communicates the value and usage of your backend API.
+The MIT License (MIT).
+
+## Additional Notes
+
+* Consider including sections for troubleshooting, deployment instructions, and future development plans.
+* Use clear headings and formatting to enhance readability.
+* Leverage Markdown features (bold, italics, lists) for structure.
+* Provide links to relevant documentation for Symfony, Docker, and other technologies used.
