@@ -1,0 +1,25 @@
+#controllers:
+#    resource:
+#        path: ../src/Controller/
+#        namespace: App\Controller
+#    type: attribute
+
+api_register:
+    path: /api/register
+    controller: App\Controller\UserController::register
+    methods: ['POST']
+
+api_login:
+    path: /api/login
+    controller: App\Controller\UserController::login
+    methods: ['POST']
+
+get_weather:
+    path: /api/weather
+    controller: App\Controller\WeatherController::get
+    methods: ['GET']
+
+get_cities:
+    path: /api/all-cities
+    controller: App\Controller\CityController::getList
+    methods: [ 'GET' ]
